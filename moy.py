@@ -194,13 +194,13 @@ def download_reel_with_caption(message):
                         caption = item['caption']
 
                 if not found_video:
-                    bot.reply_to(message, "‼ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗶𝘀𝘀𝗶𝗻𝗴 𝗼𝗿 𝗶𝗻𝘃𝗮𝗹𝗶𝗱 𝘃𝗶𝗱𝗲𝗼 𝗨𝗥𝗟 𝗶𝗻 𝗔𝗣𝗜 𝗿𝗲𝘀𝗽𝗼𝗻𝘀.‼")
+                    bot.reply_to(message, "‼ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗠𝗶𝘀𝘀𝗶𝗻𝗴 𝗼𝗿 𝗶𝗻𝘃𝗮𝗹𝗶𝗱 𝘃𝗶𝗱𝗲𝗼 𝗨𝗥𝗟 𝗶𝗻 𝗔𝗣𝗜 𝗿𝗲𝘀𝗽𝗼𝗻𝘀𝗲.‼")
                     return
             else:
-                bot.reply_to(message, "‼ 𝗙𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗣𝗜 𝗿𝗲𝘀𝗽𝗼𝗻𝘀𝗲 𝗶𝘀 𝗲𝗽𝘁𝘆 𝗼𝗿 𝗶𝗻𝘃𝗮𝗹𝗶𝗱.‼")
+                bot.reply_to(message, "‼ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗔𝗣𝗜 𝗿𝗲𝘀𝗽𝗼𝗻𝘀𝗲 𝗶𝘀 𝗲𝗺pty 𝗼𝗿 𝗶𝗻𝘃𝗮𝗹𝗶𝗱.‼")
                 return
         else:
-            bot.reply_to(message, f"‼ 𝗙𝗮𝗹𝗲 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗔𝗣𝗜 𝗿𝗲𝘀𝗽𝗼𝗻𝗱𝗲𝗱 𝘄𝗶𝗵: {response.status_code}‼")
+            bot.reply_to(message, f"‼ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘃𝗶𝗱𝗲𝗼. 𝗔𝗣𝗜 𝘃𝟐 𝗿𝗲𝘀𝗽𝗼𝗻𝗱𝗲𝗱 𝘄𝗶𝘁𝗵: {response.status_code}‼")
             return
 
         # Ensure caption is a string and not None
@@ -213,7 +213,7 @@ def download_reel_with_caption(message):
             caption = caption[:max_caption_length] + "..."
 
         # Combine video and caption in one message
-        footer = "\n\n🎥 𝗛𝗿𝗲 𝗶𝘀 𝘆𝗼𝗿 𝗿𝗾𝘂𝘀𝘁𝗱 𝗥𝗲𝗹 👀 𝗽𝗿𝗼𝘃𝗱𝗲𝗱 𝗯𝘆 @instra_dwn_bymrin_bot ❤️\n\n"
+        footer = "\n\n🎥 𝗛𝗲𝗿𝗲 𝗶𝘀 𝘆𝗼𝘂𝗿 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗥𝗲𝗲𝗹 👀 𝗽𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 @instra_dwn_bymrin_bot ❤️\n\n"
         combined_caption = f"{caption}{footer}"
 
         # Ensure combined caption does not exceed 1024 characters
@@ -231,7 +231,7 @@ def download_reel_with_caption(message):
             pass
 
         # Send the progress message when the video is found
-        progress_msg = bot.reply_to(message, "➖ 𝗩𝗶𝗱𝗲𝗼 𝗙𝗼𝘂𝗻𝗱 ! 𝗗𝗼𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴 ⤵ ")
+        progress_msg = bot.reply_to(message, "➖ 𝗩𝗶𝗱𝗲𝗼 𝗙𝗼𝘂𝗻𝗱 ! 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴 ⤵ ")
         threading.Thread(target=delete_after_delay, args=(progress_msg.chat.id, progress_msg.message_id)).start()
 
         # Encode combined caption to UTF-8 to avoid encoding issues
@@ -239,24 +239,24 @@ def download_reel_with_caption(message):
             combined_caption = combined_caption.encode('utf-8').decode('utf-8')
         except Exception as e:
             print(f"Encoding error: {str(e)}")
-            combined_caption = "\n\n🎥 𝗛𝗲𝗿𝗲 𝗶𝘀 𝘆𝘂𝗿 𝗿𝗾𝘂𝘀𝘁𝗱 𝗥𝗲𝗹 👀 𝗽𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 @instra_dwn_bymrin_bot ❤️\n\n"
+            combined_caption = "\n\n🎥 𝗛𝗲𝗿𝗲 𝗶𝘀 𝘆𝗼𝘂𝗿 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗥𝗲𝗲𝗹 👀 𝗽𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 @instra_dwn_bymrin_bot ❤️\n\n"
 
         # Send video with caption
         try:
             bot.send_video(message.chat.id, video_url, caption=combined_caption)
         except Exception as e:
-            bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁 𝘀𝗲𝗻𝗱 𝘃𝗶𝗱𝗲𝗼. 𝗿𝗿𝗿 : {str(e)}")
+            bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝘀𝗲𝗻𝗱 𝘃𝗶𝗱𝗲𝗼. 𝗘𝗿𝗿𝗼𝗿 : {str(e)}")
             return
 
         # Notify the user that the bot is ready for the next request
         bot.send_message(
             message.chat.id,
-            "𝗜 𝗺 𝗿𝗮𝗱 𝗳𝗼𝗿 𝘆𝗼𝘂 𝗻𝗲𝘅𝘁 𝘃𝗶𝗱𝗲𝗼.... 𝗞𝗶𝗻𝗱𝗹𝘆 𝘀𝗲𝗻𝗱 𝗮 𝘃𝗮𝗹𝗶𝗱 𝗜𝘀𝘁𝗴𝗿𝗺 𝗩𝗶𝗱𝗲𝗼 / 𝗲𝗲𝗹 𝗹𝗶𝗻𝗸, 𝗜 𝘄𝗶𝗹𝗹 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗶𝘁 𝗳𝗼𝗿 𝘆𝘂 👀 \n\n[ 𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗘𝗗 𝗕𝗬 > ー @M_o_Y_zZz ]"
+            "𝗜 𝗮𝗺 𝗿𝗲𝗮𝗱𝘆 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗻𝗲𝘅𝘁 𝘃𝗶𝗱𝗲𝗼.... 𝗞𝗶𝗻𝗱𝗹𝘆 𝘀𝗲𝗻𝗱 𝗮 𝘃𝗮𝗹𝗶𝗱 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺 𝗩𝗶𝗱𝗲𝗼 / 𝗿𝗲𝗲𝗹 𝗹𝗶𝗻𝗸, 𝗜 𝘄𝗹𝗹 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗶𝘁 𝗳𝗼𝗿 𝘆𝗼𝘂 👀 \n\n[ 𝗕𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗘𝗗 𝗕𝗬 > ー @M_o_Y_zZz ]"
         )
     except requests.RequestException as e:
-        bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗰𝗼𝗻𝗻𝗲𝗰𝘁 𝗼 𝗦𝗿𝘃𝗿 ⚠️ : {str(e)}")
+        bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗰𝗼𝗻𝗻𝗲𝗰𝘁 𝘁𝗼 𝗦𝗲𝗿𝘃𝗲𝗿 ⚠️ : {str(e)}")
     except Exception as e:
-        bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝘆𝗼𝗿 𝗿𝗲𝘂𝗲𝘀𝘁 ⚠️  : {str(e)}")
+        bot.reply_to(message, f"⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝘆𝗼𝘂𝗿 𝗿𝗲𝗾𝘂𝗲𝘀𝘁 ⚠️  : {str(e)}")
 
 @bot.message_handler(func=lambda message: not re.match(r"^(https?://)?(www\.)?instagram\.com/.*$", message.text))
 def ignore_message(message):
